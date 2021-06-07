@@ -1,20 +1,21 @@
-require "open-uri"
-require "nokogiri"
+# frozen_string_literal: true
 
-language="en"
+require 'open-uri'
+require 'nokogiri'
+
+language = 'en'
 url = "https://game.capcom.com/cfn/sfv/stats/usagerate?lang=#{language}"
-html = URI.open(url)
+html = URI.parse(url).open
 response = Nokogiri::HTML(html)
-dateList = response.css("#selectColumn option")
-dateList.each{
-    |date|
-    textDate = date.text
-    urlDate = date.attribute("value").value
-    url = "https://game.capcom.com/cfn/sfv/stats/usagerate/#{urlDate}?lang=#{language}"
-    html = URI.open(url)
-    response = Nokogiri::HTML(html)
-    names = response.css(".name")
-    playRate = response.css(".percent")
-    puts textDate+"\n"
-    (0..names.size-1).each{|i| puts "#{names[i].text}: #{playRate[i].text.to_f}"}
-}
+date_list = response.css('#selectColumn option')
+date_list.each do |date|
+  text_date = date.text
+  url_date = date.attribute('value').value
+  url = "https://game.capcom.com/cfn/sfv/stats/usagerate/#{url_date}?lang=#{language}"
+  html = URI.parse(url).open
+  response = Nokogiri::HTML(html)
+  names = response.css('.name')
+  play_rate = response.css('.percent')
+  puts text_date
+  (0..names.size - 1).each { |i| puts "#{names[i].text}: #{play_rate[i].text.to_f}" }
+end
