@@ -28,6 +28,8 @@ date_list.reverse.each do |dates|
     \"Month\": \"#{formatted_date}\"}"
     data = JSON.parse(json_builder)
     id = names[i].text + url_date.to_s
-    client.index(index: 'street_ranker', id: id, body: data)
+    unless client.exists(index: 'street_ranker', id: id)
+      client.index(index: 'street_ranker', id: id, body: data)
+    end
   end
 end
