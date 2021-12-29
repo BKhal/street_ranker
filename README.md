@@ -19,7 +19,7 @@ Having [Visual Studio Code](https://code.visualstudio.com/) also installed with 
 
 ![Your new Docker Containers](https://github.com/BKhal/street_ranker/blob/master/assets/images/docker_containers_snip.png?raw=true)
 
-4. The *street_ranker_webscraper* container should start on its own after a few seconds, but if not then give it a minute or two and then Right-Click > Start. This container runs a script that pulls the latest data from [the Capcom website](https://game.capcom.com/cfn/sfv/stats/usagerate). Will take about another minute or two to complete, you'll know it's done when the container stops running.
+4. The *street_ranker_webscraper* container should start on its own after a few seconds, but if not (or if it suddenly stops running within a few seconds) then give it a minute or two and then Right-Click > Start. This container runs a script that pulls the latest data from [the Capcom website](https://game.capcom.com/cfn/sfv/stats/usagerate). Will take about another minute or two to complete, you'll know it's done when the container stops running.
    - This is an optional step, since the project comes with a bunch of data in the *elasticsearch-data* folder, but it's good to run this container whenever new stats get published to the website.
    
 5. If you want to delete all these containers, just run `Docker Compose Down` in the Command Palette.
