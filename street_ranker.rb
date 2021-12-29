@@ -5,7 +5,7 @@ require 'json'
 require 'nokogiri'
 require 'open-uri'
 
-client = Elasticsearch::Client.new retry_on_failure: 60, delay_on_retry: 1000, url: 'http://elasticsearch:9200', log: true
+client = Elasticsearch::Client.new retry_on_failure: 2, delay_on_retry: 30_000, url: 'http://elasticsearch:9200', log: true
 client.cluster.health
 language = 'en'
 url = "https://game.capcom.com/cfn/sfv/stats/usagerate?lang=#{language}" # URL to pull Street Fighter V stats from
