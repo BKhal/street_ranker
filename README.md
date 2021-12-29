@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/github/license/BKhal/street_ranker)](https://github.com/BKhal/street_ranker/blob/master/LICENSE)
+
 # Street Ranker
 Street Ranker is an application that tracks and visualizes Street Fighter V character usage stats.
 
